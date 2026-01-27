@@ -1,5 +1,6 @@
 import React,{useEffect,useMemo,useState} from "react";
 import "./Header.css";
+import {Link} from "react-router-dom";
 
 import hero1 from "../../assets/images/hero1.png";
 import hero2 from "../../assets/images/hero2.png";
@@ -11,9 +12,8 @@ const Header=()=>{
   const navLinks=[
     {label:"Home",href:"#home"},
     {label:"Services",href:"#services"},
-    {label:"Portfolio",href:"#portfolio"},
     {label:"About",href:"#about"},
-    {label:"Contact",href:"#contact"},
+    {label:"Contact",to:"/contact"},
   ];
 
   const features=[
@@ -23,16 +23,45 @@ const Header=()=>{
     {title:"Lifetime free updates",desc:"Keep improving your site with fresh sections and updates as your brand grows.",icon:"update"},
   ];
 
-  const shots=useMemo(()=>(
-    [
-      {src:hero1,alt:"preview 1",cls:"shot--1"},
-      {src:hero2,alt:"preview 2",cls:"shot--2"},
-      {src:hero3,alt:"preview 3",cls:"shot--3"},
-      {src:hero4,alt:"preview 4",cls:"shot--4"},
-    ]
-  ),[]);
+  const shots=useMemo(()=>([
+    {src:hero1,alt:"preview 1",cls:"shot--1"},
+    {src:hero2,alt:"preview 2",cls:"shot--2"},
+    {src:hero3,alt:"preview 3",cls:"shot--3"},
+    {src:hero4,alt:"preview 4",cls:"shot--4"},
+  ]),[]);
 
-  // 1) Images: pop in one after the other (default: once, every 10s)
+  // mobile menu
+  const [menuOpen,setMenuOpen]=useState(false);
+
+  // lock body scroll when menu is open
+  useEffect(()=>{
+    if(!menuOpen) return;
+    const prev=document.body.style.overflow;
+    document.body.style.overflow="hidden";
+    return ()=>{
+      document.body.style.overflow=prev;
+    };
+  },[menuOpen]);
+
+  // close menu with ESC
+  useEffect(()=>{
+    if(!menuOpen) return;
+
+    const onKeyDown=(e)=>{
+      if(e.key==="Escape") setMenuOpen(false);
+    };
+
+    window.addEventListener("keydown",onKeyDown);
+    return ()=>{
+      window.removeEventListener("keydown",onKeyDown);
+    };
+  },[menuOpen]);
+
+  const closeMenu=()=>{
+    setMenuOpen(false);
+  };
+
+  // 1) Images: pop in one after the other
   const [visibleShots,setVisibleShots]=useState(1);
 
   useEffect(()=>{
@@ -110,14 +139,14 @@ const Header=()=>{
   const showCaret=(typingStage!=="done");
 
   return (
-    <header className="header" id="home">
+    <header className={`header ${menuOpen?"isMenuOpen":""}`} id="home">
       <div className="header__bgShapes" aria-hidden="true">
         <span className="shape shape--a" />
         <span className="shape shape--b" />
       </div>
 
       <div className="header__topbar">
-        <a className="header__brand" href="#home">
+        <a className="header__brand" href="#home" onClick={closeMenu}>
           <img className="header__logo" src={logo} alt="FREEWROLD logo" />
           <div className="header__brandText">
             <div className="header__brandName">FREEWROLD</div>
@@ -126,10 +155,16 @@ const Header=()=>{
         </a>
 
         <nav className="header__nav">
-          {navLinks.map((item)=>(
-            <a key={item.href} className="header__navLink" href={item.href}>
-              {item.label}
-            </a>
+          {navLinks.map((link)=>(
+            link.to ? (
+              <Link key={link.label} to={link.to} className="nav__link">
+                {link.label}
+              </Link>
+            ):(
+              <a key={link.label} href={link.href} className="nav__link">
+                {link.label}
+              </a>
+            )
           ))}
         </nav>
 
@@ -137,7 +172,84 @@ const Header=()=>{
           <a className="header__btn header__btn--ghost" href="#portfolio">View Work</a>
           <a className="header__btn header__btn--solid" href="#contact">Hire Me</a>
         </div>
+
+        {/* burger (shows on <=980px via CSS) */}
+        <button
+          className={`header__burger ${menuOpen?"isOpen":""}`}
+          type="button"
+          aria-label={menuOpen?"Close menu":"Open menu"}
+          aria-expanded={menuOpen}
+          onClick={()=>setMenuOpen((v)=>!v)}
+        >
+          <span className="header__burgerLines">
+            <span />
+            <span />
+            <span />
+          </span>
+        </button>
       </div>
+
+      {/* overlay + drawer */}
+      <div
+        className="header__mobileOverlay"
+        role="button"
+        tabIndex={0}
+        aria-label="Close menu"
+        onClick={closeMenu}
+        onKeyDown={(e)=>{if(e.key==="Enter") closeMenu();}}
+      />
+
+      <aside className="header__mobileDrawer" aria-label="Mobile menu">
+        <div className="header__mobileTop">
+          <div className="header__mobileTitle">Menu</div>
+
+          <button
+            className={`header__burger ${menuOpen?"isOpen":""}`}
+            type="button"
+            aria-label="Close menu"
+            onClick={closeMenu}
+          >
+            <span className="header__burgerLines">
+              <span />
+              <span />
+              <span />
+            </span>
+          </button>
+        </div>
+
+        <nav className="header__mobileLinks">
+          {navLinks.map((link)=>(
+            link.to ? (
+              <Link
+                key={link.label}
+                to={link.to}
+                className="header__mobileLink"
+                onClick={closeMenu}
+              >
+                {link.label}
+              </Link>
+            ):(
+              <a
+                key={link.label}
+                href={link.href}
+                className="header__mobileLink"
+                onClick={closeMenu}
+              >
+                {link.label}
+              </a>
+            )
+          ))}
+        </nav>
+
+        <div className="header__mobileActions">
+          <a className="header__mobileBtn header__mobileBtn--ghost" href="#portfolio" onClick={closeMenu}>
+            View Work
+          </a>
+          <a className="header__mobileBtn header__mobileBtn--solid" href="#contact" onClick={closeMenu}>
+            Hire Me
+          </a>
+        </div>
+      </aside>
 
       <div className="header__hero">
         <div className="header__left">
@@ -200,7 +312,7 @@ const Header=()=>{
         </div>
       </section>
 
-      <button className="header__floatingBtn">
+      <button className="header__floatingBtn" type="button" aria-label="Floating action">
         <span className="header__floatingDot" />
       </button>
     </header>

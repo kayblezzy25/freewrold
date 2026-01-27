@@ -65,7 +65,7 @@ const Service=()=>{
     <section className="services" id="services">
       <div className="services__wrap">
         <div className="services__top">
-          <span className="services__kicker">(Services)</span>
+          <span className="services__kicker">SERVICES</span>
           <h2 className="services__title">What We Do</h2>
         </div>
 
