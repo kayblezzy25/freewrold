@@ -62,7 +62,6 @@ const Footer=()=> {
 
             <a className="footer__navLink" href="#home">Home</a>
             <a className="footer__navLink" href="#services">Services</a>
-            <a className="footer__navLink" href="#portfolio">Portfolio</a>
             <a className="footer__navLink" href="#about">About</a>
             <a className="footer__navLink" href="#contact">Contact</a>
           </nav>

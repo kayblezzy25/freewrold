@@ -35,9 +35,9 @@ const Contact=()=>{
       lines:[
         "FREEWROLD / Media & Partnerships",
         "We work global",
-        "Telegram: @Kayblezzy25",
+        "Telegram: @exmickey",
       ],
-      action:{label:"Message on Telegram",href:"https://t.me/Kayblezzy25"},
+      action:{label:"Message on Telegram",href:"https://t.me/exmickey"},
     },
     {
       title:"SALES",
@@ -53,7 +53,7 @@ const Contact=()=>{
         "FREEWROLD",
         "Remote-first (Worldwide)",
       ],
-      action:{label:"Open WhatsApp",href:"https://wa.me/2348131082557"},
+      action:{label:"Open WhatsApp",href:"https://wa.me/2347066491271"},
     },
   ],[]);
 
@@ -134,8 +134,8 @@ const Contact=()=>{
                       Send message
                     </button>
 
-                    <a className="contact__alt" href="https://t.me/Kayblezzy25" target="_blank" rel="noreferrer">
-                      Prefer Telegram? DM @Kayblezzy25
+                    <a className="contact__alt" href="https://t.me/exmickey" target="_blank" rel="noreferrer">
+                      Prefer Telegram? DM
                     </a>
                   </div>
                 </form>

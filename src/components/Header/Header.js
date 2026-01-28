@@ -8,6 +8,8 @@ import hero3 from "../../assets/images/hero3.png";
 import hero4 from "../../assets/images/hero4.png";
 import logo from "../../assets/images/logo.png";
 
+import headerVideo from "../../assets/video/Website_Build_Video_Generation.mp4";
+
 const Header=()=>{
   const navLinks=[
     {label:"Home",href:"#home"},
@@ -30,18 +32,53 @@ const Header=()=>{
     {src:hero4,alt:"preview 4",cls:"shot--4"},
   ]),[]);
 
+  // contact urls
+  const telegramUsername="exmickey";
+  const whatsappNumber="2347066491271"; // no +, no spaces
+  const telegramUrl=`https://t.me/${telegramUsername}`;
+  const whatsappUrl=`https://wa.me/${whatsappNumber}`;
+
   // mobile menu
   const [menuOpen,setMenuOpen]=useState(false);
 
-  // lock body scroll when menu is open
+  // video modal
+  const [videoOpen,setVideoOpen]=useState(false);
+
+  // video playing state (for pulsing background)
+  const [videoPlaying,setVideoPlaying]=useState(false);
+
+  // floating chat visibility (based on dark sections in view)
+  const [showFloatChat,setShowFloatChat]=useState(false);
+
   useEffect(()=>{
-    if(!menuOpen) return;
+    const targets=[...document.querySelectorAll("[data-floatchat='dark']")];
+
+    if(!targets.length){
+      setShowFloatChat(false);
+      return;
+    }
+
+    const io=new IntersectionObserver((entries)=>{
+      const anyDarkVisible=entries.some((e)=>e.isIntersecting && e.intersectionRatio>=0.25);
+      setShowFloatChat(anyDarkVisible);
+    },{threshold:[0,0.25,0.5,0.75,1]});
+
+    targets.forEach((el)=>io.observe(el));
+
+    return ()=>{
+      io.disconnect();
+    };
+  },[]);
+
+  // lock body scroll when menu or video is open
+  useEffect(()=>{
+    if(!menuOpen && !videoOpen) return;
     const prev=document.body.style.overflow;
     document.body.style.overflow="hidden";
     return ()=>{
       document.body.style.overflow=prev;
     };
-  },[menuOpen]);
+  },[menuOpen,videoOpen]);
 
   // close menu with ESC
   useEffect(()=>{
@@ -57,8 +94,31 @@ const Header=()=>{
     };
   },[menuOpen]);
 
+  // close video with ESC
+  useEffect(()=>{
+    if(!videoOpen) return;
+
+    const onKeyDown=(e)=>{
+      if(e.key==="Escape") closeVideo();
+    };
+
+    window.addEventListener("keydown",onKeyDown);
+    return ()=>{
+      window.removeEventListener("keydown",onKeyDown);
+    };
+  },[videoOpen]);
+
   const closeMenu=()=>{
     setMenuOpen(false);
+  };
+
+  const openVideo=()=>{
+    setVideoOpen(true);
+  };
+
+  const closeVideo=()=>{
+    setVideoPlaying(false);
+    setVideoOpen(false);
   };
 
   // 1) Images: pop in one after the other
@@ -139,7 +199,7 @@ const Header=()=>{
   const showCaret=(typingStage!=="done");
 
   return (
-    <header className={`header ${menuOpen?"isMenuOpen":""}`} id="home">
+    <header className={`header ${menuOpen?"isMenuOpen":""}`} id="home" data-floatchat="dark">
       <div className="header__bgShapes" aria-hidden="true">
         <span className="shape shape--a" />
         <span className="shape shape--b" />
@@ -170,7 +230,9 @@ const Header=()=>{
 
         <div className="header__actions">
           <a className="header__btn header__btn--ghost" href="#portfolio">View Work</a>
-          <a className="header__btn header__btn--solid" href="#contact">Hire Me</a>
+          <a className="header__btn header__btn--solid" href={telegramUrl} target="_blank" rel="noreferrer">
+            Hire Me
+          </a>
         </div>
 
         {/* burger (shows on <=980px via CSS) */}
@@ -245,7 +307,13 @@ const Header=()=>{
           <a className="header__mobileBtn header__mobileBtn--ghost" href="#portfolio" onClick={closeMenu}>
             View Work
           </a>
-          <a className="header__mobileBtn header__mobileBtn--solid" href="#contact" onClick={closeMenu}>
+          <a
+            className="header__mobileBtn header__mobileBtn--solid"
+            href={telegramUrl}
+            target="_blank"
+            rel="noreferrer"
+            onClick={closeMenu}
+          >
             Hire Me
           </a>
         </div>
@@ -262,7 +330,7 @@ const Header=()=>{
           </h1>
 
           <div className="header__playRow">
-            <button className="header__playBtn" type="button">
+            <button className="header__playBtn" type="button" onClick={openVideo} aria-label="Play video">
               <span className="header__playIcon" />
             </button>
             <div className="header__playText">
@@ -312,9 +380,67 @@ const Header=()=>{
         </div>
       </section>
 
-      <button className="header__floatingBtn" type="button" aria-label="Floating action">
-        <span className="header__floatingDot" />
-      </button>
+      {/* FLOATING CHAT ICONS */}
+      <div className={`header__floatStack ${showFloatChat?"isVisible":""}`} aria-label="Quick chat">
+        <a
+          className="header__floatBtn header__floatBtn--whatsapp"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Chat on WhatsApp"
+          title="WhatsApp"
+        >
+          <span className="header__floatIcon header__floatIcon--whatsapp" aria-hidden="true" />
+        </a>
+
+        <a
+          className="header__floatBtn header__floatBtn--telegram"
+          href={telegramUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Message on Telegram"
+          title="Telegram"
+        >
+          <span className="header__floatIcon header__floatIcon--telegram" aria-hidden="true" />
+        </a>
+      </div>
+
+      {/* VIDEO MODAL */}
+      {videoOpen ? (
+        <div className={`header__videoModal ${videoPlaying?"isPlaying":""}`} role="dialog" aria-modal="true" aria-label="Website build video">
+          <div
+            className="header__videoBackdrop"
+            role="button"
+            tabIndex={0}
+            aria-label="Close video"
+            onClick={closeVideo}
+            onKeyDown={(e)=>{if(e.key==="Enter") closeVideo();}}
+          />
+
+          <div className="header__videoCard">
+            <button className="header__videoClose" type="button" aria-label="Close" onClick={closeVideo}>
+              <span />
+              <span />
+            </button>
+
+            <div className="header__videoFrame">
+              <video
+                className="header__video"
+                src={headerVideo}
+                controls
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                onPlay={()=>setVideoPlaying(true)}
+                onPause={()=>setVideoPlaying(false)}
+                onEnded={()=>setVideoPlaying(false)}
+              />
+            </div>
+          </div>
+        </div>
+      ) : null}
     </header>
   );
 };

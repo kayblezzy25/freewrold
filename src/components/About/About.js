@@ -1,5 +1,6 @@
 import React from "react";
 import "./About.css";
+import {Link} from "react-router-dom";
 
 import aboutImg from "../../assets/images/about.png";
 
@@ -18,7 +19,7 @@ const About=()=>{
             If you&apos;re not sure what to build, how to present your services, or how to convert visitors into paying customers, I&apos;ll guide you and deliver a clean, fast, modern site—plus the marketing strategy to make it perform.
           </p>
 
-          <a className="about__btn" href="#contact">SCHEDULE</a>
+          <Link className="about__btn" to="/contact">SCHEDULE</Link>
         </div>
 
         <div className="about__right" aria-label="About image">

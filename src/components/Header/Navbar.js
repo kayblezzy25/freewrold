@@ -12,8 +12,10 @@ const Navbar=()=>{
     {label:"Contact",to:"/contact"},
   ];
 
+  const telegramUrl="https://t.me/exmickey";
+
   return (
-    <header className="header header--navOnly">
+    <header className="header header--navOnly" data-floatchat="dark">
       <div className="header__topbar">
         <Link className="header__brand" to="/">
           <img className="header__logo" src={logo} alt="FREEWROLD logo" />
@@ -33,7 +35,9 @@ const Navbar=()=>{
 
         <div className="header__actions">
           <Link className="header__btn header__btn--ghost" to="/#portfolio">View Work</Link>
-          <Link className="header__btn header__btn--solid" to="/contact">Hire Me</Link>
+          <a className="header__btn header__btn--solid" href={telegramUrl} target="_blank" rel="noreferrer">
+            Hire Me
+          </a>
         </div>
       </div>
     </header>
