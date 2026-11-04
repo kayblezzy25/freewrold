@@ -17,7 +17,7 @@ const Contact=()=>{
     },
     {
       q:"What services does FREEWROLD offer?",
-      a:"Web development, digital marketing & promotion, SEO/GEO ranking, press releases, and custom bots (Telegram & web).",
+      a:"Web development, digital marketing & promotion, SEO/GEO ranking, press releases, and custom bots (Telegram & web). Each service has its own page on this site explaining exactly how it works.",
     },
     {
       q:"How can I reach your customer support?",
