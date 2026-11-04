@@ -1,5 +1,7 @@
 import React from "react";
 import "./Footer.css";
+import {Link} from "react-router-dom";
+import services from "../../data/services";
 
 const Footer=()=> {
   return (
@@ -60,10 +62,18 @@ const Footer=()=> {
           <nav className="footer__col" aria-label="Footer navigation">
             <p className="footer__heading">NAVIGATION</p>
 
-            <a className="footer__navLink" href="#home">Home</a>
-            <a className="footer__navLink" href="#services">Services</a>
-            <a className="footer__navLink" href="#about">About</a>
-            <a className="footer__navLink" href="#contact">Contact</a>
+            <Link className="footer__navLink" to="/#home">Home</Link>
+            <Link className="footer__navLink" to="/#services">Services</Link>
+            <Link className="footer__navLink" to="/#portfolio">Portfolio</Link>
+            <Link className="footer__navLink" to="/#about">About</Link>
+            <Link className="footer__navLink" to="/contact">Contact</Link>
+          </nav>
+
+          <nav className="footer__col" aria-label="Services">
+            <p className="footer__heading">SERVICES</p>
+            {services.map((sv)=>(
+              <Link key={sv.slug} className="footer__navLink" to={`/services/${sv.slug}`}>{sv.title}</Link>
+            ))}
           </nav>
         </div>
       </div>

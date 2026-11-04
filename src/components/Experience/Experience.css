@@ -1,0 +1,130 @@
+.xp{
+  background:#f5f6f8;
+  color:#0f0f10;
+  padding:clamp(72px,10vw,120px) 0;
+}
+
+.xp__wrap{
+  width:min(980px,calc(100% - 48px));
+  margin:0 auto;
+}
+
+.xp__top{text-align:center;margin-bottom:48px;}
+
+.xp__kicker{
+  display:inline-block;
+  font-size:13px;
+  letter-spacing:.22em;
+  color:#6b6f76;
+  margin-bottom:12px;
+}
+
+.xp__title{
+  font-size:clamp(30px,4.6vw,44px);
+  font-weight:800;
+  letter-spacing:-.02em;
+  margin:0 0 8px;
+}
+
+.xp__role{font-size:15px;font-weight:700;margin:0 0 14px;color:#2e3238;}
+
+.xp__lead{
+  max-width:640px;
+  margin:0 auto;
+  font-size:14.5px;
+  line-height:1.75;
+  color:#4a4f57;
+}
+
+.xp__timeline{
+  list-style:none;
+  padding:0 0 0 24px;
+  margin:0 0 48px;
+  border-left:2px solid #d9dce0;
+  display:grid;
+  gap:28px;
+}
+
+.xp__item{
+  position:relative;
+  background:#fff;
+  padding:24px 26px;
+  border:1px solid #e6e8eb;
+}
+
+.xp__item::before{
+  content:"";
+  position:absolute;
+  left:-33px;
+  top:30px;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:#0f0f10;
+  border:3px solid #f5f6f8;
+}
+
+.xp__head{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-bottom:12px;
+}
+
+.xp__org{font-size:18px;font-weight:800;margin:0;}
+.xp__company{font-size:14px;color:#6b6f76;margin:4px 0 0;}
+
+.xp__period{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.06em;
+  padding:6px 12px;
+  background:#0f0f10;
+  color:#fff;
+  border-radius:999px;
+  height:fit-content;
+}
+
+.xp__points{
+  margin:0;
+  padding-left:18px;
+  display:grid;
+  gap:8px;
+  font-size:14px;
+  line-height:1.7;
+  color:#4a4f57;
+}
+
+.xp__skills{display:grid;gap:24px;}
+
+.xp__skillTitle{
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:800;
+  margin:0 0 10px;
+}
+
+.xp__chips{display:flex;flex-wrap:wrap;gap:8px;}
+
+.xp__chip{
+  font-size:13px;
+  font-weight:600;
+  padding:7px 13px;
+  background:#fff;
+  border:1px solid #e0e3e7;
+  border-radius:999px;
+}
+
+.xp__edu{font-size:14.5px;margin:0;color:#2e3238;}
+
+.xp__links{display:flex;gap:18px;margin-top:32px;justify-content:center;}
+.xp__links a{color:#0f0f10;font-weight:700;font-size:14px;}
+
+@media (max-width:520px){
+  .xp__wrap{width:calc(100% - 32px);}
+  .xp__timeline{padding-left:18px;}
+  .xp__item{padding:20px 18px;}
+  .xp__item::before{left:-27px;}
+}
