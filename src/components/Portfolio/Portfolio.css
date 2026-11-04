@@ -199,3 +199,56 @@
   .lb__list{grid-template-columns:1fr;}
   .lb__body{padding:20px;}
 }
+
+/* case-study stats & before/after */
+.pf__stat{
+  display:inline-block;
+  margin:0 0 12px;
+  padding:6px 12px;
+  background:#ffc107;
+  color:#0f0f10;
+  font-size:13px;
+  font-weight:800;
+  border-radius:999px;
+}
+
+.pf__img--contain{
+  object-fit:contain;
+  object-position:center;
+  background:#0f0f0f;
+}
+
+.lb__compare{
+  display:grid;
+  gap:0;
+  background:#0f0f0f;
+}
+
+.lb__fig{
+  margin:0;
+  position:relative;
+}
+
+.lb__badge{
+  position:absolute;
+  bottom:10px;
+  right:10px;
+  padding:5px 12px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.12em;
+  border-radius:4px;
+  color:#fff;
+}
+.lb__badge--before{background:#d32f2f;}
+.lb__badge--after{background:#2e7d32;}
+
+.lb__stat{
+  display:inline-block;
+  margin:0 0 12px;
+  padding:6px 12px;
+  background:#ffc107;
+  font-size:13px;
+  font-weight:800;
+  border-radius:999px;
+}

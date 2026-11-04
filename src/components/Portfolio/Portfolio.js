@@ -23,7 +23,7 @@ const Portfolio=()=>{
         <div className="pf__top">
           <span className="pf__kicker">PORTFOLIO</span>
           <h2 className="pf__title">Past Work</h2>
-          <p className="pf__lead">A selection of websites and launches I've built. Tap any project for details.</p>
+          <p className="pf__lead">Websites I've built and YouTube channels I've grown. Tap any project for details, including before & after results.</p>
         </div>
 
         <div className="pf__filters" role="tablist" aria-label="Filter projects">
@@ -46,11 +46,12 @@ const Portfolio=()=>{
           {items.map((p)=>(
             <article className="pf__item" key={p.id}>
               <button type="button" className="pf__imgBtn" onClick={()=>setActive(p)} aria-label={`View ${p.title}`}>
-                <img className="pf__img" src={p.image} alt={`${p.title}: ${p.category}`} loading="lazy" />
+                <img className={`pf__img ${p.before?"pf__img--contain":""}`} src={p.image} alt={`${p.title}: ${p.category}`} loading="lazy" />
               </button>
               <div className="pf__body">
                 <span className="pf__cat">{p.category}</span>
                 <h3 className="pf__name">{p.title}</h3>
+                {p.stat ? <p className="pf__stat">{p.stat}</p> : null}
                 <p className="pf__text">{p.summary}</p>
                 <div className="pf__tags">
                   {p.services.map((slug)=>{

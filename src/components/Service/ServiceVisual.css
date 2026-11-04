@@ -64,3 +64,8 @@
 @media (prefers-reduced-motion:reduce){
   .sv__glow{animation:none;}
 }
+
+.sv__img{
+  object-fit:contain !important;
+  background:#0f0f0f;
+}

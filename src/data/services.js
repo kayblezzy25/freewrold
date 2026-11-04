@@ -3,6 +3,7 @@ import devWebMp4 from "../assets/images/gifts/dev web.mp4";
 import digitalMp4 from "../assets/images/gifts/digital marketers.mp4";
 import seoMp4 from "../assets/images/gifts/seo.mp4";
 import pressMp4 from "../assets/images/gifts/press release.mp4";
+import ytHero from "../assets/images/youtube/ink-after.jpg";
 
 // Every service has: a short card summary (home page) and a full
 // explanation (service page): what it is, how it works, the step-by-step
@@ -139,6 +140,42 @@ const services=[
       {q:"How much budget do I need?",a:"You can start small and scale once we find winning ads. I'll recommend a starting budget based on your goal."},
       {q:"Can you grow a Telegram channel with ads?",a:"Yes. I've run Facebook/Meta campaigns specifically to grow a Telegram channel audience."},
       {q:"Is the ad budget included in your fee?",a:"No. Ad spend is paid directly to Meta from your account. My fee covers setup, creatives and management."},
+    ],
+  },
+  {
+    slug:"youtube-growth",
+    title:"YouTube Growth & Monetization",
+    short:"YouTube Growth",
+    tagline:"Grow your channel and reach monetization.",
+    summary:"I promote YouTube videos and grow channels toward monetization with optimised titles, thumbnails and SEO, a content and Shorts strategy, and targeted video promotion. Past channels grew from under 100 subscribers to over 700K.",
+    image:ytHero,
+    tags:["Video Promotion","Channel Growth","Monetization","YouTube SEO"],
+    overview:[
+      "To join the YouTube Partner Program and earn from ads, a channel needs 1,000 subscribers plus either 4,000 public watch hours in 12 months or 10 million Shorts views in 90 days. Most channels get stuck long before that, usually because the right viewers never see their videos.",
+      "I help channels get discovered and keep growing. I optimise how each video is packaged (title, thumbnail, description, tags), plan a Shorts and long-form strategy, and promote videos to real, interested viewers. The results speak for themselves: Ink Explainer went from 3K to 161K subscribers, TMZ Clips from 70 to 701K, and AxolootlVR from 67 to 83.8K.",
+    ],
+    howItWorks:[
+      "A channel audit finds what's holding you back: weak thumbnails, low click-through, poor retention or videos that aren't being found in search.",
+      "YouTube SEO (keyword-researched titles, descriptions, tags and chapters) helps your videos rank in search and suggested videos.",
+      "Thumbnail and title improvements raise click-through rate, the main signal YouTube uses to push a video to more people.",
+      "Video promotion puts your videos in front of a targeted audience interested in your niche, so you get real views and subscribers who keep watching.",
+      "A consistent upload plan that mixes Shorts (for discovery) with long-form videos (for watch hours) moves you toward monetization.",
+      "I only use methods that comply with YouTube's policies, so your channel stays safe and eligible to monetize.",
+    ],
+    process:[
+      {title:"Channel audit",desc:"I review your analytics, best and worst videos, thumbnails, titles, retention and niche competitors."},
+      {title:"Growth strategy",desc:"We set a target (for example monetization, a subscriber milestone or views per video) and I build a content, Shorts and promotion plan to reach it."},
+      {title:"Optimise videos",desc:"I improve titles, thumbnails, descriptions, tags, chapters and playlists on your existing and new videos."},
+      {title:"Promote",desc:"I run targeted promotion for your chosen videos to reach viewers interested in your topic."},
+      {title:"Grow consistently",desc:"I keep your upload schedule and Shorts going, and support community posts and engagement to keep momentum."},
+      {title:"Track & report",desc:"You get regular reports on views, watch hours, subscribers and progress toward monetization."},
+    ],
+    deliverables:["Full channel audit","Growth & content strategy","YouTube SEO for videos","Title & thumbnail optimisation","Targeted video promotion","Shorts strategy","Monetization progress tracking","Regular growth reports"],
+    faqs:[
+      {q:"What are the YouTube monetization requirements?",a:"1,000 subscribers plus either 4,000 valid public watch hours in the last 12 months, or 10 million valid public Shorts views in the last 90 days. Your channel also has to follow YouTube's policies."},
+      {q:"Are the views and subscribers real?",a:"Yes. I use optimisation and targeted promotion to reach real viewers. I don't use bots or fake engagement, because they can get a channel demonetized or removed."},
+      {q:"How fast will my channel grow?",a:"It depends on your niche, content quality and budget. Promotion and optimisation give you a faster start, and consistent uploads keep the growth going."},
+      {q:"Do you work with Shorts channels?",a:"Yes. Shorts are one of the fastest ways to get discovered, and many of the channels I've grown post a lot of Shorts."},
     ],
   },
   {

@@ -18,6 +18,17 @@ const ServiceVisual=({service,className})=>{
     );
   }
 
+  if(service.image){
+    return (
+      <img
+        className={`${className||""} sv__img`}
+        src={service.image}
+        alt={`${service.title}: past result`}
+        loading="lazy"
+      />
+    );
+  }
+
   return (
     <div className={`sv ${className||""}`} aria-hidden="true">
       <span className="sv__glow" />

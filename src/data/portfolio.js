@@ -2,10 +2,50 @@ import brightSmile from "../assets/images/hero1.png";
 import shibaZilla from "../assets/images/hero2.png";
 import martyCto from "../assets/images/hero3.png";
 import zentra from "../assets/images/hero4.png";
+import inkBefore from "../assets/images/youtube/ink-before.jpg";
+import inkAfter from "../assets/images/youtube/ink-after.jpg";
+import tmzBefore from "../assets/images/youtube/tmz-before.jpg";
+import tmzAfter from "../assets/images/youtube/tmz-after.jpg";
+import axoBefore from "../assets/images/youtube/axo-before.jpg";
+import axoAfter from "../assets/images/youtube/axo-after.jpg";
 
 // Past work shown in the Portfolio section and on each service page.
 // `services` lists the service slugs a project is relevant to.
+// Items with `before` are before/after case studies (image = after).
 const portfolio=[
+  {
+    id:"tmz-clips",
+    title:"TMZ Clips",
+    category:"YouTube Growth Case Study",
+    image:tmzAfter,
+    before:tmzBefore,
+    stat:"70 → 701K subscribers",
+    summary:"A celebrity clips channel (@TMZShortClips) grown from 70 subscribers to 701K through video promotion, packaging and a high-volume Shorts strategy.",
+    highlights:["Before: 70 subscribers, 60 videos","After: 701K subscribers, 6.7K videos","High-volume Shorts strategy","Video promotion & optimisation"],
+    services:["youtube-growth"],
+  },
+  {
+    id:"ink-explainer",
+    title:"Ink Explainer",
+    category:"YouTube Growth Case Study",
+    image:inkAfter,
+    before:inkBefore,
+    stat:"3K → 161K subscribers",
+    summary:"An animated educational channel about human history and behaviour, grown from 3K to 161K subscribers with only 20 videos, well past YouTube's monetization threshold.",
+    highlights:["Before: 3K subscribers, 5 videos","After: 161K subscribers, 20 videos","Targeted video promotion","Title, thumbnail & SEO optimisation"],
+    services:["youtube-growth"],
+  },
+  {
+    id:"axolootlvr",
+    title:"AxolootlVR",
+    category:"YouTube Growth Case Study",
+    image:axoAfter,
+    before:axoBefore,
+    stat:"67 → 83.8K subscribers",
+    summary:"A VR gaming channel grown from 67 subscribers to 83.8K while scaling from 9 to 884 videos, on its way to the channel's 100K goal.",
+    highlights:["Before: 67 subscribers, 9 videos","After: 83.8K subscribers, 884 videos","Gaming niche promotion","Consistent upload & Shorts plan"],
+    services:["youtube-growth"],
+  },
   {
     id:"brightsmile",
     title:"BrightSmile Dental",
