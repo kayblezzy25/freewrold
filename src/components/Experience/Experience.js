@@ -4,7 +4,7 @@ import "./Experience.css";
 // Content taken from Micheal Arewa's resume.
 const roles=[
   {
-    org:"FHG (Remote)",
+    org:"FREEWROLD (Remote)",
     role:"Manager & Developer",
     period:"Aug 2024 – Present",
     points:[
@@ -49,7 +49,7 @@ const Experience=()=>{
           <h2 className="xp__title">Micheal Arewa</h2>
           <p className="xp__role">Social Media Manager & AI Content Creator | Web & AI Automation Developer</p>
           <p className="xp__lead">
-            I'm a social media manager and AI content creator who also builds the websites and automations behind a brand's online presence. I work remotely with international clients through Fiverr and FHG.
+            I'm a social media manager and AI content creator who also builds the websites and automations behind a brand's online presence. I work remotely with international clients through Fiverr and FREEWROLD.
           </p>
         </div>
 
