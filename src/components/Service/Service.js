@@ -3,6 +3,7 @@ import "./Services.css";
 import {Link} from "react-router-dom";
 
 import services from "../../data/services";
+import ServiceVisual from "./ServiceVisual";
 
 const Service=()=>{
   return (
@@ -46,15 +47,7 @@ const Service=()=>{
 
                 <div className="services__media">
                   <Link className="services__frame" to={`/services/${item.slug}`} aria-label={`Learn more about ${item.title}`}>
-                    <video
-                      className="services__video"
-                      src={item.media}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="metadata"
-                    />
+                    <ServiceVisual service={item} className="services__video" />
                   </Link>
                 </div>
               </article>

@@ -5,6 +5,7 @@ import {Link,Navigate,useParams} from "react-router-dom";
 import Navbar from "../Header/Navbar";
 import Footer from "../Footer/Footer";
 import Lightbox from "../Portfolio/Lightbox";
+import ServiceVisual from "./ServiceVisual";
 import services,{getService} from "../../data/services";
 import {getWorkForService} from "../../data/portfolio";
 
@@ -49,7 +50,7 @@ const ServiceDetail=()=>{
               </div>
             </div>
             <div className="sd__heroMedia">
-              <video className="sd__video" src={service.media} autoPlay loop muted playsInline preload="metadata" />
+              <ServiceVisual service={service} className="sd__video" />
             </div>
           </div>
         </section>

@@ -9,6 +9,7 @@ const Navbar=()=>{
     {label:"Home",to:"/"},
     {label:"Services",to:"/#services"},
     {label:"Portfolio",to:"/#portfolio"},
+    {label:"Experience",to:"/#experience"},
     {label:"About",to:"/#about"},
     {label:"Contact",to:"/contact"},
   ];
@@ -22,7 +23,7 @@ const Navbar=()=>{
           <img className="header__logo" src={logo} alt="FREEWROLD logo" />
           <div className="header__brandText">
             <div className="header__brandName">FREEWROLD</div>
-            <div className="header__brandTag">Web Dev • Digital Marketing • Promotion</div>
+            <div className="header__brandTag">Web Dev • Social Media • AI Automation</div>
           </div>
         </Link>
 

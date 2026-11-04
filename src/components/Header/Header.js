@@ -15,6 +15,7 @@ const Header=()=>{
     {label:"Home",href:"#home"},
     {label:"Services",href:"#services"},
     {label:"Portfolio",href:"#portfolio"},
+    {label:"Experience",href:"#experience"},
     {label:"About",href:"#about"},
     {label:"Contact",to:"/contact"},
   ];
@@ -211,7 +212,7 @@ const Header=()=>{
           <img className="header__logo" src={logo} alt="FREEWROLD logo" />
           <div className="header__brandText">
             <div className="header__brandName">FREEWROLD</div>
-            <div className="header__brandTag">Web Dev • Digital Marketing • Promotion</div>
+            <div className="header__brandTag">Web Dev • Social Media • AI Automation</div>
           </div>
         </a>
 
@@ -341,7 +342,7 @@ const Header=()=>{
           </div>
 
           <div className="header__miniNote">
-            FREEWROLD helps me showcase my skills as a Web Developer, Digital Marketer, and Promoter — clean, fast, and built to convert.
+            FREEWROLD showcases my work as a Web & AI Automation Developer, Social Media Manager and AI Content Creator: websites, content, ads and automations built to convert.
           </div>
         </div>
 

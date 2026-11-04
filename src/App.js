@@ -7,6 +7,7 @@ import About from "./components/About/About";
 import Service from "./components/Service/Service";
 import ServiceDetail from "./components/Service/ServiceDetail";
 import Portfolio from "./components/Portfolio/Portfolio";
+import Experience from "./components/Experience/Experience";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
@@ -35,6 +36,7 @@ const Home=()=>{
       <About />
       <Service />
       <Portfolio />
+      <Experience />
       <Footer />
     </>
   );
